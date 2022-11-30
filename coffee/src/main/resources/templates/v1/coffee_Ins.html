@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Coffee Ver1</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="/css/comm.css">
+    <link rel="stylesheet" type="text/css" href="/css/coffee.css">
+
+</head>
+<body>
+
+
+<!-- 헤더 위치 -->
+<th:block th:include="~{/comm/header}"></th:block>
+
+
+<div id="main" style="font-size:large; text-align: center; ">
+
+    <div id="menuIns" style="height: 250px; width: 50%; font-size: small; margin-left: auto; margin-right: auto;">
+        <h3>[ 메뉴 등록 ]</h3>
+        <form name="coffeeV1" autocomplete="on" action="/v1/insert" method="post">
+            <fieldset>
+                <legend>등록 Form</legend>
+                <label>메뉴명</label><input type="text" name="name"></p>
+                <label>종 류 </label><select name="kind">
+                <option value="1.커피">1.커피</option>
+                <option value="2.에이드">2.에이드</option>
+                <option value="3.스무디">3.스무디</option>
+            </select>
+                </p>
+                <label>가 격 </label><input type="number" name="price"></p>
+
+                <input type="submit" value="메뉴 등록" style="width: 100px;height: 30px;font-weight: bold; font-size: medium">
+
+            </fieldset>
+        </form>
+    </div>
+
+</div>
+
+<!-- 푸터 위치 -->
+<th:block th:replace="~{/comm/footer}"></th:block>
+
+</body>
+</html>
