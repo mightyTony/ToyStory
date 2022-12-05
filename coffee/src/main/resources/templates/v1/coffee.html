@@ -34,9 +34,10 @@
                 <option value="2.에이드">2.에이드</option>
                 <option value="3.스무디">3.스무디</option>
             </select>
-                &nbsp;&nbsp;<input type="submit" value="조회" style="width: 80px;height: 30px;font-weight: bold; font-size: medium">
-                &nbsp;&nbsp;<button style="width: 80px;height: 30px;font-weight: bold; font-size: medium"><a href="/v1/insert">등록</a></button>
-                &nbsp;&nbsp;<button style="width: 80px;height: 30px;font-weight: bold; font-size: medium"><a href="/v1/deleteAll">삭제</a></button>
+                <input type="submit" value="조회" style="width: 80px;height: 30px;font-weight: bold; font-size: medium">
+                <button style="width: 80px;height: 30px;font-weight: bold; font-size: medium"><a href="/v1/insert">등록</a></button>
+                <button style="width: 80px;height: 30px;font-weight: bold; font-size: medium"><a href="/v1/deleteAll">삭제</a></button>
+                <a href="javascript:loadDocArray()">ajax</a>
             </fieldset>
         </form>
     </div>
@@ -91,6 +92,22 @@
     document.getElementById("start_date").value= time7.toISOString().slice(0,10);
     document.getElementById("end_date").value= new Date().toISOString().slice(0,10);
 
+    <div id="demo">
+        <h1>The XMLHttpRequest Object</h1>
+        <button type="button" onclick="loadDoc()">Change Content</button>
+    </div>
+
+    function loadDocArray() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("demo").innerHTML =
+        this.responseText;
+    }
+    };
+        xhttp.open("GET", "ajax_info.txt", true);
+        xhttp.send();
+    }
 </script>
 </body>
 </html>
